@@ -402,6 +402,89 @@ ol {
   line-height: 1.42;
 }
 
+.solution {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--section-padding);
+  background:
+    radial-gradient(circle at 82% 46%, rgba(128, 0, 32, 0.22), transparent 34%),
+    linear-gradient(180deg, #050505 0%, #0a0a0a 52%, #050505 100%);
+}
+
+.solution-layout {
+  display: grid;
+  gap: 42px;
+  align-items: center;
+}
+
+.solution-content {
+  max-width: 680px;
+}
+
+.solution-kicker {
+  margin-bottom: 14px;
+  color: var(--color-red);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.solution h2 {
+  color: var(--color-text);
+  font-size: clamp(2.35rem, 10vw, 5.1rem);
+}
+
+.solution-promise {
+  margin-top: 24px;
+  color: #f0f0f0;
+  font-size: clamp(1.16rem, 4.8vw, 1.58rem);
+  font-weight: 700;
+  line-height: 1.42;
+}
+
+.solution-copy {
+  max-width: 620px;
+  margin-top: 20px;
+  color: var(--color-muted);
+  font-size: clamp(1rem, 3.6vw, 1.12rem);
+}
+
+.book-mockup-container {
+  position: relative;
+  min-height: 360px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.045), rgba(255, 255, 255, 0.01)),
+    radial-gradient(circle at 50% 32%, rgba(128, 0, 32, 0.44), transparent 48%),
+    #090909;
+  box-shadow:
+    0 32px 110px rgba(0, 0, 0, 0.52),
+    0 0 90px rgba(128, 0, 32, 0.34),
+    inset 0 0 70px rgba(230, 0, 0, 0.08);
+  isolation: isolate;
+}
+
+.book-mockup-container::before {
+  content: "";
+  position: absolute;
+  inset: 18%;
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(128, 0, 32, 0.2), rgba(5, 5, 5, 0.38));
+  box-shadow: inset 0 0 48px rgba(0, 0, 0, 0.48);
+}
+
+.book-mockup-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.09), transparent 36%);
+  pointer-events: none;
+}
+
 .container {
   width: min(100% - calc(var(--container-padding) * 2), var(--container-width));
   margin-inline: auto;
@@ -439,6 +522,11 @@ ol {
 
   .agitation-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .solution-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.82fr);
+    gap: 56px;
   }
 }
 
