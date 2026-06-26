@@ -561,14 +561,16 @@ ol {
 }
 
 .site-footer {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 10px;
-  justify-items: center;
-  padding: 30px 20px;
-  background: #050505;
-  color: #555555;
-  font-size: 0.78rem;
-  text-align: center;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 22px var(--container-padding);
+  background: #000000;
+  color: #444444;
+  font-size: 11px;
+  text-align: left;
 }
 
 .site-footer p {
@@ -578,12 +580,12 @@ ol {
 .footer-links {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 14px;
+  justify-content: flex-start;
+  gap: 12px;
 }
 
 .footer-links a {
-  color: #555555;
+  color: #444444;
   transition: color 160ms ease;
 }
 
@@ -617,6 +619,11 @@ ol {
 @media (min-width: 768px) {
   :root {
     --container-padding: 32px;
+  }
+
+  .site-footer {
+    flex-direction: row;
+    align-items: center;
   }
 
   .hero-cta {
