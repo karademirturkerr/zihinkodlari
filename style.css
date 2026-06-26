@@ -120,7 +120,7 @@ ol {
   align-items: center;
   min-height: 100svh;
   overflow: hidden;
-  padding-block: var(--section-padding);
+  padding-block: clamp(56px, 8vw, 104px);
   background:
     radial-gradient(circle at 50% 48%, var(--color-surface) 0%, #0b0b0b 34%, var(--color-bg) 72%),
     var(--color-bg);
@@ -154,8 +154,9 @@ ol {
   z-index: 2;
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 4rem;
-  min-height: calc(100svh - (var(--section-padding) * 2));
+  gap: clamp(3rem, 8vw, 7rem);
+  width: min(100% - calc(var(--container-padding) * 2), 1440px);
+  min-height: calc(100svh - clamp(112px, 16vw, 208px));
   align-items: center;
   justify-items: start;
 }
@@ -163,7 +164,7 @@ ol {
 .hero-content {
   display: flex;
   width: 100%;
-  max-width: 720px;
+  max-width: 680px;
   flex-direction: column;
   align-items: flex-start;
 }
@@ -178,14 +179,16 @@ ol {
 }
 
 .hero h1 {
-  max-width: 720px;
+  max-width: 680px;
   color: var(--color-text);
-  font-size: clamp(2.75rem, 8.4vw, 5.75rem);
-  line-height: 0.94;
+  font-size: clamp(2.55rem, 5.35vw, 5rem);
+  line-height: 0.96;
 }
 
 .hero h1 span {
   display: block;
+  overflow-wrap: normal;
+  word-break: keep-all;
 }
 
 .hero h1 span:first-child {
@@ -198,7 +201,7 @@ ol {
 }
 
 .hero-copy {
-  max-width: 640px;
+  max-width: 610px;
   margin-top: 24px;
   color: var(--color-muted);
   font-size: clamp(1rem, 3.6vw, 1.18rem);
@@ -244,7 +247,7 @@ ol {
   position: relative;
   display: grid;
   place-items: center;
-  width: min(100%, 560px);
+  width: min(100%, 600px);
   aspect-ratio: 1 / 1;
   justify-self: center;
   overflow: visible;
@@ -614,15 +617,6 @@ ol {
     width: auto;
   }
 
-  .hero-layout {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 5rem;
-  }
-
-  .hero-visual {
-    justify-self: end;
-  }
-
   .agitation-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -635,11 +629,25 @@ ol {
 
 @media (min-width: 980px) {
   .hero-content {
-    max-width: 720px;
+    max-width: 680px;
   }
 
   .hero-visual {
-    width: min(42vw, 620px);
+    width: min(44vw, 620px);
+  }
+}
+
+@media (min-width: 1040px) {
+  .hero-layout {
+    grid-template-columns: minmax(0, 1.02fr) minmax(380px, 0.98fr);
+  }
+
+  .hero-content {
+    justify-self: start;
+  }
+
+  .hero-visual {
+    justify-self: end;
   }
 }
 
