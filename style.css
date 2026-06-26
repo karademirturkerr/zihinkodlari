@@ -314,6 +314,94 @@ ol {
   transform: translate(-50%, -50%) rotate(-42deg);
 }
 
+.agitation {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--section-padding);
+  background:
+    radial-gradient(circle at 16% 0%, rgba(128, 0, 32, 0.2), transparent 30%),
+    linear-gradient(180deg, var(--color-bg), #090909 48%, var(--color-bg));
+}
+
+.agitation::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(230, 0, 0, 0.05), transparent);
+  opacity: 0.58;
+  pointer-events: none;
+}
+
+.agitation-heading {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+  margin-bottom: 34px;
+}
+
+.section-kicker {
+  margin-bottom: 12px;
+  color: #d4af37;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.agitation h2 {
+  color: var(--color-text);
+  font-size: clamp(2rem, 8vw, 4rem);
+}
+
+.agitation-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  gap: 18px;
+}
+
+.agitation-card {
+  min-height: 180px;
+  padding: 26px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, 0.03);
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.agitation-card:hover,
+.agitation-card:focus-within {
+  border-color: rgba(128, 0, 32, 0.72);
+  background: rgba(255, 255, 255, 0.045);
+  box-shadow:
+    0 24px 80px rgba(0, 0, 0, 0.38),
+    0 0 34px rgba(128, 0, 32, 0.16);
+  transform: translateY(-5px);
+}
+
+.card-number {
+  display: block;
+  margin-bottom: 34px;
+  color: #d4af37;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+.agitation-card:nth-child(even) .card-number {
+  color: var(--color-red);
+}
+
+.agitation-card p {
+  color: var(--color-text);
+  font-size: clamp(1.06rem, 4vw, 1.28rem);
+  font-weight: 700;
+  line-height: 1.42;
+}
+
 .container {
   width: min(100% - calc(var(--container-padding) * 2), var(--container-width));
   margin-inline: auto;
@@ -347,6 +435,10 @@ ol {
   .hero-orbit {
     right: 2vw;
     bottom: 4vh;
+  }
+
+  .agitation-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
